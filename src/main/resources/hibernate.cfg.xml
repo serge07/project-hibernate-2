@@ -3,14 +3,15 @@
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">com.p6spy.engine.spy.P6SpyDriver</property>
         <property name="hibernate.connection.url">jdbc:p6spy:mysql://localhost:3306/rpg</property>
-        <!--        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
-        <!--        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/your_database</property>-->
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
 
         <!-- JDBC connection pool settings -->
         <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
 
         <!-- Dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
@@ -19,12 +20,25 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Enable SQL Logging -->
-        <property name="hibernate.show_sql">false</property> <!-- Optional: Hibernate's built-in option -->
+        <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
-        <!-- Mapping the Player entity -->
+        <!-- Mapping all entity classes -->
         <mapping class="com.movie.entity.Country"/>
         <mapping class="com.movie.entity.City"/>
-
+        <mapping class="com.movie.entity.Address"/>
+        <mapping class="com.movie.entity.Customer"/>
+        <mapping class="com.movie.entity.Staff"/>
+        <mapping class="com.movie.entity.Store"/>
+        <mapping class="com.movie.entity.Language"/>
+        <mapping class="com.movie.entity.Film"/>
+        <mapping class="com.movie.entity.Actor"/>
+        <mapping class="com.movie.entity.Category"/>
+        <mapping class="com.movie.entity.FilmActor"/>
+        <mapping class="com.movie.entity.FilmCategory"/>
+        <mapping class="com.movie.entity.Inventory"/>
+        <mapping class="com.movie.entity.Rental"/>
+        <mapping class="com.movie.entity.Payment"/>
+        <mapping class="com.movie.entity.FilmText"/>
     </session-factory>
 </hibernate-configuration>
